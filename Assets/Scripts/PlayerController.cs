@@ -7,6 +7,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
+    public float maxSpeed = 5f; 
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
@@ -46,8 +47,19 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
+        if (movement.magnitude > 1)
+        {
+            movement.Normalize();
+        }
+
         rb.AddForce(movement * speed);
+     
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed; 
+        }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
