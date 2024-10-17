@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 5f; 
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject mainCamera;
 
     private Rigidbody rb;
     private int count;
@@ -45,19 +46,24 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+       
+        Vector3 cameraForward = mainCamera.transform.forward;
+        Vector3 cameraRight = mainCamera.transform.right;
 
-        if (movement.magnitude > 1)
-        {
-            movement.Normalize();
-        }
+        
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+
+       
+
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+       
+        Vector3 movement = cameraForward * movementY + cameraRight * movementX;
 
         rb.AddForce(movement * speed);
-     
-        if (rb.velocity.magnitude > maxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized * maxSpeed; 
-        }
+
     }
 
 
