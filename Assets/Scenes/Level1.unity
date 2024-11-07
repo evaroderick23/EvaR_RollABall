@@ -182,6 +182,16 @@ PrefabInstance:
       propertyPath: winTextObject
       value: 
       objectReference: {fileID: 1525652138}
+    - target: {fileID: 3333368572659452217, guid: a91a24084bd2cce46b530d2e1595201e,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333368572659452217, guid: a91a24084bd2cce46b530d2e1595201e,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6883012783880874761, guid: a91a24084bd2cce46b530d2e1595201e,
         type: 3}
       propertyPath: m_Camera
@@ -3551,7 +3561,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Use W, A, S, D to move
 
-    Right click and hold to move the camera'
+    Click Shift to stop
+
+    Right click and hold
+    to move the camera'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
