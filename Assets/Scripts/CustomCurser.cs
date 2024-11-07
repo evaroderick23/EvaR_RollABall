@@ -20,7 +20,7 @@ public class CustomCursor : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) 
         {
-            Cursor.visible = false; // Hide cursor
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked; 
         }
 
