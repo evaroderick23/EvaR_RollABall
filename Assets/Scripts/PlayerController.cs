@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.InputSystem.Utilities;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private float movementY;
 
     private bool isShiftPressed = false;
+    public AudioSource snow;
+
+
 
    
     void Start()
@@ -36,12 +40,14 @@ public class PlayerController : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
+        snow.Play();
     }
 
    
     void OnStop(InputValue value)
     {
         isShiftPressed = value.isPressed;
+        snow.Stop();
     }
 
     void SetCountText()
@@ -77,6 +83,10 @@ public class PlayerController : MonoBehaviour
 
        
             rb.AddForce(movement * speed);
+        }
+        if (speed == 0)
+        {
+            snow.Stop();
         }
     }
 
